@@ -42,3 +42,4 @@ class PublicationController extends Controller
         ]);
     }
 }
+
