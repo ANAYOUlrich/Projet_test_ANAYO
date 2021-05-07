@@ -20,6 +20,7 @@ Route::post('user/register','Api\UserController@register');
 //Route qui ont besoin d'authentification
 Route::group(['prefix' => 'publication'], function () {
     Route::get('/', 'Api\PublicationController@index');
-    Route::post('store', 'Api\PublicationController@store')->middleware('App\Http\Middleware\JwtAuthMiddleware');
+    // Route::post('store', 'Api\PublicationController@store')->middleware('App\Http\Middleware\JwtAuthMiddleware');
+    Route::post('store', 'Api\PublicationController@store');
 });
 

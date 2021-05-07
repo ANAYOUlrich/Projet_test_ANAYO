@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Publication;
 use App\User;
+use App\Utils\Utils;
 
 class PublicationController extends Controller
 {
@@ -19,11 +20,19 @@ class PublicationController extends Controller
         $this->validate($request, [
             'titre'     => 'required',
             'contenu'   => 'required',
+            'image'     => '',
         ]);
+
+        $image=null;
+        if($request->hasfile('image')){
+            $name = uniqid($request->nom);
+            $image = Utils::save_file($request->image,$name ,'images_publication');
+        };
 
         Publication::create([
             'titre'     => $request->titre,
             'contenu'   => $request->contenu,
+            'image'   => $image,
             'user_id'   => User::getCurrentUser()->id,
         ]);
 
