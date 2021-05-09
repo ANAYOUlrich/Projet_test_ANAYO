@@ -1,14 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:tutorial_project/pages/regi_page.dart';
-import 'package:tutorial_project/utils/color.dart';
-import 'package:tutorial_project/widgets/btn_widget.dart';
-import 'package:tutorial_project/widgets/herder_container.dart';
+import 'package:projet_test/utils/color.dart';
+import 'package:projet_test/widgets/btn_widget.dart';
+import 'package:projet_test/widgets/herder_container.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tutorial_project/api/api.dart';
-import 'package:tutorial_project/Home/homeScreen.dart';
-import 'package:tutorial_project/pages/publication_page.dart';
+import 'package:projet_test/pages/publication_page.dart';
 import 'package:http/http.dart' as http;
 
 class CreatePublication extends StatefulWidget {
@@ -17,6 +14,7 @@ class CreatePublication extends StatefulWidget {
 }
 
 class _CreatePublicationState extends State<CreatePublication> {
+  var userData;
   bool _isLoading = false;
   TextEditingController titreController = TextEditingController();
   TextEditingController contenuController = TextEditingController();
@@ -99,15 +97,26 @@ class _CreatePublicationState extends State<CreatePublication> {
     );
   }
 
+  void _getUserInfo() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var userJson = localStorage.getString('user');
+    var user = json.decode(userJson);
+    setState(() {
+      userData = user;
+    });
+  }
+
   void _handleInsertPublication() async {
     setState(() {
       _isLoading = true;
     });
 
+    _getUserInfo();
     var url = 'https://rocky-coast-87478.herokuapp.com/api/publication/store';
-    var response = await http.post(url, body: {
+    var response = await http.post(Uri.parse(url), body: {
       'titre': titreController.text,
       'contenu': contenuController.text,
+      'token' : userData['token'],
     });
 
     var body = json.decode(response.body);

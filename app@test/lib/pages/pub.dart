@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tutorial_project/pages/details_publication.dart';
-import 'package:tutorial_project/utils/color.dart';
-import 'package:tutorial_project/widgets/herder_container.dart';
-import 'package:tutorial_project/pages/create_publication.dart';
+import 'package:projet_test/pages/details_publication.dart';
+import 'package:projet_test/utils/color.dart';
+import 'package:projet_test/widgets/herder_container.dart';
+import 'package:projet_test/pages/create_publication.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Future getData() async {
     var url = 'https://rocky-coast-87478.herokuapp.com/api/publication/';
-    var response = await http.get(url);
+    var response = await http.get(Uri.parse(url));
     return json.decode(response.body);
   }
 

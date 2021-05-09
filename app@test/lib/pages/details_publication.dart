@@ -1,15 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:tutorial_project/pages/regi_page.dart';
-import 'package:tutorial_project/utils/color.dart';
-import 'package:tutorial_project/widgets/btn_widget.dart';
-import 'package:tutorial_project/widgets/herder_container.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tutorial_project/api/api.dart';
-import 'package:tutorial_project/Home/homeScreen.dart';
-import 'package:tutorial_project/pages/publication_page.dart';
-import 'package:tutorial_project/Login/loginScreen.dart';
+import 'package:projet_test/utils/color.dart';
+import 'package:projet_test/widgets/herder_container.dart';
+import 'package:projet_test/pages/publication_page.dart';
 
 class DetailsPublication extends StatefulWidget {
   var name = "Nom", titre = "Titre", contenu = "Contenu", date = "Date";

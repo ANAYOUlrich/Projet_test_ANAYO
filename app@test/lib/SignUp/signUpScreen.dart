@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:tutorial_project/Home/homeScreen.dart';
-import 'package:tutorial_project/Login/loginScreen.dart';
+import 'package:projet_test/Home/homeScreen.dart';
+import 'package:projet_test/Login/loginScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tutorial_project/api/api.dart';
+import 'package:projet_test/api/api.dart';
 
 
 

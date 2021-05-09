@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tutorial_project/EditProfile/editProfileScreen.dart';
-import 'package:tutorial_project/Login/loginScreen.dart';
-import 'package:tutorial_project/api/api.dart';
+import 'package:projet_test/EditProfile/editProfileScreen.dart';
+import 'package:projet_test/Login/loginScreen.dart';
+import 'package:projet_test/api/api.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -26,7 +26,6 @@ class _HomeState extends State<Home> {
       setState(() {
         userData = user;
       });
-
   }
   @override
   Widget build(BuildContext context) {

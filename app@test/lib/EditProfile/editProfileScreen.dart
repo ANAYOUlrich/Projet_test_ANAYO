@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tutorial_project/Home/homeScreen.dart';
-import 'package:tutorial_project/Login/loginScreen.dart';
+import 'package:projet_test/Home/homeScreen.dart';
+import 'package:projet_test/Login/loginScreen.dart';
 
 TextEditingController firstNameController = TextEditingController();
 TextEditingController lastNameController = TextEditingController();

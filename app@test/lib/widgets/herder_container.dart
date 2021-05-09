@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tutorial_project/utils/color.dart';
-import 'package:tutorial_project/pages/login_page.dart';
-import 'package:tutorial_project/pages/home_page.dart';
+import 'package:projet_test/utils/color.dart';
+import 'package:projet_test/pages/login_page.dart';
+import 'package:projet_test/pages/home_page.dart';
 
 class HeaderContainer extends StatelessWidget {
   var text = "Login", taille = 0.4, profil=false;
@@ -21,7 +21,7 @@ class HeaderContainer extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 30, left:20),
             child: InkWell(
               onTap: () {
                 Navigator.push(

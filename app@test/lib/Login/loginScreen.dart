@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:tutorial_project/Home/homeScreen.dart';
-import 'package:tutorial_project/SignUp/signUpScreen.dart';
-import 'package:tutorial_project/api/api.dart';
+import 'package:projet_test/Home/homeScreen.dart';
+import 'package:projet_test/SignUp/signUpScreen.dart';
+import 'package:projet_test/api/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LogIn extends StatefulWidget {

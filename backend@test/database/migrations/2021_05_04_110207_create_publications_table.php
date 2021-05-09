@@ -15,7 +15,7 @@ class CreatePublicationsTable extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
-            $table->string('contenu')->nullable();
+            $table->text('contenu')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->undelete('cascade');
             $table->timestamps();

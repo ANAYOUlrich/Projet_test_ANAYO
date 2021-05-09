@@ -2,13 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tutorial_project/EditProfile/editProfileScreen.dart';
 import 'package:http/http.dart' as http;
-import 'package:tutorial_project/Login/loginScreen.dart';
-import 'package:tutorial_project/api/api.dart';
-import 'package:tutorial_project/pages/publication_page.dart';
-import 'package:tutorial_project/utils/color.dart';
-import 'package:tutorial_project/widgets/herder_container.dart';
+import 'package:projet_test/pages/publication_page.dart';
+import 'package:projet_test/utils/color.dart';
+import 'package:projet_test/widgets/herder_container.dart';
+import 'package:projet_test/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -248,14 +246,14 @@ class _HomePageState extends State<HomePage> {
   void logout() async {
     // logout from the server ...
     var url = 'https://rocky-coast-87478.herokuapp.com/api/logout';
-    var res = await http.get(url);
+    var res = await http.get(Uri.parse(url));
     var body = json.decode(res.body);
     if (body['success']) {
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.remove('user');
       localStorage.remove('token');
       Navigator.push(
-          context, new MaterialPageRoute(builder: (context) => LogIn()));
+          context, new MaterialPageRoute(builder: (context) => LoginPage()));
     }
   }
 }

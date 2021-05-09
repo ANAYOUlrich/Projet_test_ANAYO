@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use JWTAuth;
 use App\User;
+use JWTAuth;
 use Auth;
 
 
@@ -15,6 +15,14 @@ class AuthController extends Controller
 {
     /**Connexion mobile */
     public function login(REQUEST $request){
+
+        //Validation
+        $this->validate($request, [
+            'email'     => 'required|email',
+            'password'  => 'required',
+        ]);
+
+        //Authentification
         $input = $request->only('email', 'password');
         $jwt_token = null;
         if (!$jwt_token = JWTAuth::attempt($input)) {
@@ -23,9 +31,10 @@ class AuthController extends Controller
                 'message' => 'Email et mot de passe incorrect',
             ], 401);
         }
-        // get the user 
+        //Recuperation de l'utilisateur connécté
         $user = Auth::user();
        
+        //Renvoie de la reponse
         return response()->json([
             'success' => true,
             'token' => $jwt_token,
@@ -33,7 +42,7 @@ class AuthController extends Controller
         ]);
     }
 
-    //Logout
+    //Deconnexion
     public function logout(Request $request){
             
         try {

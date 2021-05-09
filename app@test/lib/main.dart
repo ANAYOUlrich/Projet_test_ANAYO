@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tutorial_project/Home/homeScreen.dart';
-import 'package:tutorial_project/Login/loginScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tutorial_project/pages/regi_page.dart';
-import 'package:tutorial_project/pages/login_page.dart';
-import 'package:tutorial_project/pages/home_page.dart';
-import 'package:tutorial_project/pages/pub.dart';
-import 'package:tutorial_project/pages/publication_page.dart';
-import 'package:tutorial_project/pages/create_publication.dart';
+import 'package:projet_test/pages/login_page.dart';
+import 'package:projet_test/pages/home_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -40,12 +35,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        //body: _isLoggedIn ? Home() :  LogIn(),
-        //body: _isLoggedIn ? Home() :  RegPage(),
-        body: _isLoggedIn ? Home() :  LoginPage(),
-        //body: _isLoggedIn ? Home() :  HomePage(),
-        //body: _isLoggedIn ? Home() :  PublicationPage(),
-        //body: _isLoggedIn ? Home() :  PublicationPage(),
+        body: _isLoggedIn ? HomePage() :  LoginPage(),
       ),
     );
   }
